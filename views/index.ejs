@@ -1,0 +1,44 @@
+<%-include("partials/header.ejs")%>
+
+  <body>
+    <h1>
+      <%= listTitle%>
+    </h1>
+    <div class=" d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+      <ul class="list-group">
+        <%for(var i=0;i<list.length;i++ ){%>
+          <li class="list-group-item">
+            <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;" />
+            <strong>
+              <%=list[i][0]%>
+            </strong>
+            <% if(listTitle==="Get Ready to Work" ){%>
+              <form action="/work" method="POST">
+                <%}else{%>
+                  <form action="/" method="POST">
+                    <%}%>
+                      <button type="submit" class="btn" name="delete" value="<%= i %>"><img src="images/delete.svg"
+                          alt="Delete"></button>
+                  </form>
+                  <small class="d-block text-body-secondary"><img src="images/calenderEvent.svg" alt="Event">
+                    <%=list[i][1]%>
+                  </small>
+          </li>
+          <%}%>
+      </ul>
+      <% if(listTitle==="Get Ready to Work" ){%>
+        <form class=" d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center"
+          action="/work" method="POST">
+          <%}else{%>
+            <form class=" d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center"
+              action="/" method="POST">
+              <%}%>
+                <input type="text" name="Heading" placeholder="Event Title"/>
+                <input type="text" name="Detail" placeholder="Time Frame and details"/>
+                <button type="submit" class="btn">
+                  <img src="images/addEvent.svg" alt="add button" />
+                </button>
+            </form>
+    </div>
+  </body>
+  <%-include('partials/footer.ejs')%>
