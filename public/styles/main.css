@@ -2,4 +2,20 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center!important;
+    background: linear-gradient(to bottom, #ffafbd, #ffc3a0);
+    width: 100%;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    right:0;
+}
+h1{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
 }
